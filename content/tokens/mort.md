@@ -15,7 +15,7 @@ type: docs
 
 Телеграм: https://t.me/psychobilly13 (предпочтительно)
 
-Emal: antonijem13@gmail.com
+Email: antonijem13@gmail.com
 
 Если вы приобрели токен, но не смогли договориться о проекте, эмитента обязуется выкупить его обратно по цене 10 EURMTL.
 
