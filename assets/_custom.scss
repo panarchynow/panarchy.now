@@ -1,31 +1,49 @@
 @import "variables";
+@import "defaults";
 
 // Переопределяем основные цвета темы
 :root {
   --body-font-color: #{$body-font-color};
   --body-background: #{$body-background};
   --color-link: #{$color-link};
-  --gray-100: #{$gray-100};
+  --gray-100: #{$body-background};
   --gray-200: #{$gray-200};
+  --menu-background: #{$gray-200};
 }
 
 // Стили для темной темы
 [data-theme="dark"] {
-  --body-background: #{$dark-background};
-  --body-font-color: #{$dark-font-color};
-  --gray-100: #{$gray-100};
+  @include theme-dark;
 }
 
 // Стили для светлой темы
 [data-theme="light"] {
-  --body-background: #{$light-background};
-  --body-font-color: #{$light-font-color};
-  --gray-100: #{$light-background};
+  @include theme-light;
+}
+
+// Стили для автоматического переключения
+@media (prefers-color-scheme: light) {
+  [data-theme="auto"] {
+    @include theme-light;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="auto"] {
+    @include theme-dark;
+  }
+}
+
+// Общие стили
+body {
+  background: var(--body-background);
+  color: var(--body-font-color);
+  font-family: monospace;
 }
 
 // Общие стили для всех ссылок
 a {
-  color: var(--color-link) !important;
+  color: var(--color-link);
   text-decoration: none;
   
   &:hover {
@@ -33,27 +51,27 @@ a {
   }
   
   &:visited {
-    color: var(--color-link) !important;
+    color: var(--color-visited-link);
   }
 }
 
 // Стили меню
 .book-menu {
-  background: var(--gray-100);
-  border-right: 1px solid var(--gray-200);
+  background: var(--menu-background);
+  border-right: 1px solid var(--menu-background);
   
   .book-menu-content {
-    background: var(--gray-100);
+    background: var(--menu-background);
     
     a {
-      color: var(--color-link) !important;
-      text-decoration: none !important;
-      opacity: 1 !important;
+      color: var(--body-font-color);
+      text-decoration: none;
+      opacity: 1;
       
       &:hover {
-        text-decoration: underline !important;
-        color: var(--color-link) !important;
-        opacity: 1 !important;
+        color: var(--color-link);
+        text-decoration: underline;
+        opacity: 1;
       }
     }
   }
@@ -64,34 +82,38 @@ a {
   background: var(--body-background);
   color: var(--body-font-color);
   padding: $padding-16 * 2;
+  margin-bottom: 5rem !important;
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 // Поиск
 #book-search-input {
-  background: var(--gray-100) !important;
-  color: var(--body-font-color) !important;
-  border: 1px solid var(--gray-200) !important;
+  background: var(--body-background);
+  color: var(--body-font-color);
+  border: 1px solid var(--menu-background);
   
   &::placeholder {
-    color: var(--body-font-color) !important;
+    color: var(--body-font-color);
     opacity: 0.5;
   }
   
   &:focus {
-    border-color: var(--color-link) !important;
+    border-color: var(--color-link);
     outline: none;
   }
 }
 
 #book-search-results {
-  background: var(--gray-100);
+  background: var(--body-background);
   
   li {
     margin: 0;
     padding: $padding-8;
     
     &:hover {
-      background: var(--gray-200);
+      background: var(--menu-background);
     }
   }
   
@@ -111,45 +133,142 @@ a {
   color: var(--body-font-color);
   
   code, pre {
-    background: var(--gray-100);
+    background: var(--body-background);
   }
   
   blockquote {
     border-left-color: var(--color-link);
+    background: var(--body-background);
+  }
+
+  li {
+    margin-bottom: 1.5rem;
+
+    li {
+      margin-bottom: 0;
+    }
   }
 }
 
-.book-brand {
+// Остальные элементы
+.book-header,
+.book-toc,
+.book-posts,
+.book-comments {
+  background: var(--body-background);
   color: var(--body-font-color);
+}
+
+// Футер
+.book-footer {
+  bottom: 0 !important;
+  margin-top: auto !important;
+  width: 128% !important;
+  border-top: 1px solid var(--menu-background) !important;
+  padding: 1rem !important;
+  text-align: center !important;
+  font-size: 0.9rem !important;
+  z-index: 1000 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  margin-left: -11rem !important;
+
+  .copyright {
+    flex: 0 0 auto;
+    margin-right: auto;
+  }
+
+  .social-links {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 1rem;
+
+    a {
+      margin: 0 0.5rem;
+      color: var(--body-font-color);
+      text-decoration: none;
+      
+      &:hover {
+        color: var(--color-link);
+      }
+    }
+  }
 }
 
 .book-section-flat {
   color: var(--body-font-color);
 }
 
-body {
-  background: var(--body-background);
-  color: var(--body-font-color);
-}
-
-.book-header {
-  background: var(--body-background);
-}
-
-// Стили для светлой темы
-[data-theme="light"] {
-  .book-menu {
-    background: var(--body-background);
-    border-right: 1px solid var(--gray-200);
-  }
-
-  .book-page {
-    background: var(--body-background);
-    color: var(--body-font-color);
-  }
-}
-
 // Принудительно перезаписываем стиль из темы
 aside nav ul a:hover {
-  opacity: 1 !important;
+  opacity: 1;
+}
+
+// Сброс will-change
+.book-article {
+  will-change: auto;
+}
+
+// Фоновая картинка
+body::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 13rem;
+  width: 80%;
+  height: 90%;
+  z-index: 3;
+  pointer-events: none;
+  background-image: url(/conciousness-map.png);
+  background-size: auto;
+  mix-blend-mode: color-dodge;
+  opacity: 0.2;
+}
+
+@media screen and (max-width: 768px) {
+  body::before {
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: repeat;
+    background-size: contain;
+    z-index: 1;
+  }
+
+  aside.book-menu {
+    background-color: var(--menu-background) !important;
+
+    nav {
+      background-color: var(--menu-background) !important;
+    }
+
+    .book-menu-content {
+      background-color: var(--menu-background) !important;
+    }
+  }
+
+  .book-footer {
+    width: 100% !important;
+    margin-left: 0 !important;
+
+    .copyright {
+      margin-right: auto;
+    }
+
+    .social-links {
+
+    }
+  }
+}
+
+// Убираем общие стили z-index, которые могут конфликтовать
+.book-menu,
+.book-page,
+.book-header {
+  position: relative;
+}
+
+// Отступ для контента
+.book-page {
+  margin-bottom: 0 !important;
 } 

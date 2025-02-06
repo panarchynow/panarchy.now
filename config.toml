@@ -2,7 +2,7 @@ theme = "hugo-book"
 
 [params]
   # Темная тема по умолчанию
-  BookTheme = "dark"
+  BookTheme = "light"
   
   # Включаем поиск
   BookSearch = true

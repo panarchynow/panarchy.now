@@ -1,0 +1,65 @@
+// Used in layout
+$padding-1: 1px !default;
+$padding-4: 0.25rem !default;
+$padding-8: 0.5rem !default;
+$padding-16: 1rem !default;
+
+$font-size-base: 16px !default;
+$font-size-12: 0.75rem !default;
+$font-size-14: 0.875rem !default;
+$font-size-16: 1rem !default;
+
+$border-radius: $padding-4 !default;
+
+$body-font-weight: normal !default;
+
+$body-min-width: 20rem !default;
+$container-max-width: 80rem !default;
+
+$menu-width: 16rem !default;
+$toc-width: 16rem !default;
+
+$mobile-breakpoint: $menu-width + $body-min-width * 1.2 + $toc-width !default;
+
+$hint-colors: (
+  info: #6bf,
+  warning: #fd6,
+  danger: #f66,
+) !default;
+
+// Themes
+@mixin theme-light {
+  --gray-100: #{$light-background};
+  --gray-200: #{$light-menu-background};
+  --gray-500: #{$light-menu-background};
+
+  --color-link: #{$light-color-link};
+  --color-visited-link: #{darken($light-color-link, 10%)};
+
+  --body-background: #{$light-background};
+  --body-font-color: #{$light-font-color};
+
+  --icon-filter: none;
+
+  --hint-color-info: #6bf;
+  --hint-color-warning: #fd6;
+  --hint-color-danger: #f66;
+}
+
+@mixin theme-dark {
+  --gray-100: #{$dark-background};
+  --gray-200: #{$dark-menu-background};
+  --gray-500: #{$dark-menu-background};
+
+  --color-link: #{$dark-color-link};
+  --color-visited-link: #{darken($dark-color-link, 10%)};
+
+  --body-background: #{$dark-background};
+  --body-font-color: #{$dark-font-color};
+
+  --icon-filter: brightness(0) invert(1);
+
+  --hint-color-info: #6bf;
+  --hint-color-warning: #fd6;
+  --hint-color-danger: #f66;
+} 

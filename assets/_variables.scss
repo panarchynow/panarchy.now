@@ -1,18 +1,26 @@
 // Основные цвета темной темы
-$dark-background: #202020;
-$dark-font-color: #D6D6D6;
-$color-link: #FFD100;
+$dark-background: #010301;
+$dark-menu-background: #002A00;
+$dark-font-color: #D5FFD5;
+$dark-color-link: #D5FF6B;
+
+// Основные цвета светлой темы
+$light-background: #D1FFD1;
+$light-menu-background: #8DFF8D;
+$light-font-color: #070C07;
+$light-color-link: #628801;
 
 // Переопределяем переменные темы hugo-book
-$body-background: #202020;
-$body-font-color: #D6D6D6;
+$body-background: $dark-background;
+$body-font-color: $dark-font-color;
 
 // Цвета для меню и других элементов
-$gray-100: #202020;
-$gray-200: #202020;
+$gray-100: $dark-background;
+$gray-200: $dark-menu-background;
 
 // Цвета ссылок
-$color-visited-link: #FFEE32;
+$color-link: $dark-color-link;
+$color-visited-link: darken($dark-color-link, 10%);
 
 // Размеры (оставляем как в оригинальной теме)
 $padding-1: 1px !default;
@@ -36,13 +44,40 @@ $theme-light: #202020;
 $theme-dark: #202020;
 
 // Цвета меню
-$menu-background: $gray-100;
+$menu-background: $gray-200;
 $menu-color: $body-font-color;
 
 // Цвета поиска
-$search-background: $gray-100;
+$search-background: $gray-200;
 $search-color: $body-font-color;
 
 // Светлая тема (инвертированная)
 $light-background: $dark-font-color;
-$light-font-color: $dark-background; 
+$light-font-color: $dark-background;
+
+// Themes
+@mixin theme-light {
+  --body-background: #{$light-background};
+  --body-font-color: #{$light-font-color};
+  --color-link: #{$light-color-link};
+  --color-visited-link: #{darken($light-color-link, 10%)};
+  
+  --gray-100: #{$light-background};
+  --gray-200: #{$light-menu-background};
+  
+  --menu-background: #{$light-menu-background};
+  --menu-color: #{$light-font-color};
+  
+  --search-background: #{$light-menu-background};
+  --search-color: #{$light-font-color};
+}
+
+[data-theme="light"] {
+  @include theme-light;
+}
+
+@media (prefers-color-scheme: light) {
+  [data-theme="auto"] {
+    @include theme-light;
+  }
+} 
