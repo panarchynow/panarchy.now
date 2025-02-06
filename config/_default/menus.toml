@@ -1,0 +1,14 @@
+[[main]]
+  name = "Главная"
+  url = "/"
+  weight = 10
+
+[[main]]
+  name = "Токены"
+  url = "/tokens/"
+  weight = 20
+
+[[main]]
+  name = "Документы" 
+  url = "/documents/"
+  weight = 30 

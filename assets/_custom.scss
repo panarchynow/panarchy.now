@@ -1,0 +1,155 @@
+@import "variables";
+
+// Переопределяем основные цвета темы
+:root {
+  --body-font-color: #{$body-font-color};
+  --body-background: #{$body-background};
+  --color-link: #{$color-link};
+  --gray-100: #{$gray-100};
+  --gray-200: #{$gray-200};
+}
+
+// Стили для темной темы
+[data-theme="dark"] {
+  --body-background: #{$dark-background};
+  --body-font-color: #{$dark-font-color};
+  --gray-100: #{$gray-100};
+}
+
+// Стили для светлой темы
+[data-theme="light"] {
+  --body-background: #{$light-background};
+  --body-font-color: #{$light-font-color};
+  --gray-100: #{$light-background};
+}
+
+// Общие стили для всех ссылок
+a {
+  color: var(--color-link) !important;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+  
+  &:visited {
+    color: var(--color-link) !important;
+  }
+}
+
+// Стили меню
+.book-menu {
+  background: var(--gray-100);
+  border-right: 1px solid var(--gray-200);
+  
+  .book-menu-content {
+    background: var(--gray-100);
+    
+    a {
+      color: var(--color-link) !important;
+      text-decoration: none !important;
+      opacity: 1 !important;
+      
+      &:hover {
+        text-decoration: underline !important;
+        color: var(--color-link) !important;
+        opacity: 1 !important;
+      }
+    }
+  }
+}
+
+// Основной контент
+.book-page {
+  background: var(--body-background);
+  color: var(--body-font-color);
+  padding: $padding-16 * 2;
+}
+
+// Поиск
+#book-search-input {
+  background: var(--gray-100) !important;
+  color: var(--body-font-color) !important;
+  border: 1px solid var(--gray-200) !important;
+  
+  &::placeholder {
+    color: var(--body-font-color) !important;
+    opacity: 0.5;
+  }
+  
+  &:focus {
+    border-color: var(--color-link) !important;
+    outline: none;
+  }
+}
+
+#book-search-results {
+  background: var(--gray-100);
+  
+  li {
+    margin: 0;
+    padding: $padding-8;
+    
+    &:hover {
+      background: var(--gray-200);
+    }
+  }
+  
+  mark {
+    background: var(--color-link);
+    color: var(--body-background);
+    padding: 0 $padding-4;
+  }
+}
+
+.book-search-spinner {
+  border-top-color: var(--color-link);
+}
+
+// Markdown
+.markdown {
+  color: var(--body-font-color);
+  
+  code, pre {
+    background: var(--gray-100);
+  }
+  
+  blockquote {
+    border-left-color: var(--color-link);
+  }
+}
+
+.book-brand {
+  color: var(--body-font-color);
+}
+
+.book-section-flat {
+  color: var(--body-font-color);
+}
+
+body {
+  background: var(--body-background);
+  color: var(--body-font-color);
+}
+
+.book-header {
+  background: var(--body-background);
+}
+
+// Стили для светлой темы
+[data-theme="light"] {
+  .book-menu {
+    background: var(--body-background);
+    border-right: 1px solid var(--gray-200);
+  }
+
+  .book-page {
+    background: var(--body-background);
+    color: var(--body-font-color);
+  }
+}
+
+// Принудительно перезаписываем стиль из темы
+aside nav ul a:hover {
+  opacity: 1 !important;
+} 

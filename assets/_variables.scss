@@ -1,0 +1,48 @@
+// Основные цвета темной темы
+$dark-background: #202020;
+$dark-font-color: #D6D6D6;
+$color-link: #FFD100;
+
+// Переопределяем переменные темы hugo-book
+$body-background: #202020;
+$body-font-color: #D6D6D6;
+
+// Цвета для меню и других элементов
+$gray-100: #202020;
+$gray-200: #202020;
+
+// Цвета ссылок
+$color-visited-link: #FFEE32;
+
+// Размеры (оставляем как в оригинальной теме)
+$padding-1: 1px !default;
+$padding-4: 0.25rem !default;
+$padding-8: 0.5rem !default;
+$padding-16: 1rem !default;
+
+$font-size-base: 16px !default;
+$font-size-12: 0.75rem !default;
+$font-size-14: 0.875rem !default;
+$font-size-16: 1rem !default;
+
+$container-max-width: 80rem !default;
+$container-min-width: 20rem !default;
+
+$menu-width: 16rem !default;
+$mobile-breakpoint: $menu-width + $container-max-width;
+
+// Переопределение темных/светлых тем
+$theme-light: #202020;
+$theme-dark: #202020;
+
+// Цвета меню
+$menu-background: $gray-100;
+$menu-color: $body-font-color;
+
+// Цвета поиска
+$search-background: $gray-100;
+$search-color: $body-font-color;
+
+// Светлая тема (инвертированная)
+$light-background: $dark-font-color;
+$light-font-color: $dark-background; 
