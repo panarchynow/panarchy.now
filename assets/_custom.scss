@@ -1,36 +1,26 @@
 @import "variables";
 @import "defaults";
 
-// Переопределяем основные цвета темы
-:root {
-  --body-font-color: #{$body-font-color};
-  --body-background: #{$body-background};
-  --color-link: #{$color-link};
-  --gray-100: #{$body-background};
-  --gray-200: #{$gray-200};
-  --menu-background: #{$gray-200};
-}
-
 // Стили для темной темы
-[data-theme="dark"] {
-  @include theme-dark;
+[data-theme="dark"] body::before {
+  opacity: 0.2;
 }
 
 // Стили для светлой темы
-[data-theme="light"] {
-  @include theme-light;
+[data-theme="light"] body::before {
+  opacity: 0.5;
 }
 
 // Стили для автоматического переключения
 @media (prefers-color-scheme: light) {
-  [data-theme="auto"] {
-    @include theme-light;
+  [data-theme="auto"] body::before {
+    opacity: 0.5;
   }
 }
 
 @media (prefers-color-scheme: dark) {
-  [data-theme="auto"] {
-    @include theme-dark;
+  [data-theme="auto"] body::before {
+    opacity: 0.2;
   }
 }
 
@@ -222,7 +212,7 @@ body::before {
   background-image: url(/conciousness-map.png);
   background-size: auto;
   mix-blend-mode: color-dodge;
-  opacity: 0.2;
+  opacity: var(--bg-opacity);
 }
 
 @media screen and (max-width: 768px) {
@@ -271,4 +261,9 @@ body::before {
 // Отступ для контента
 .book-page {
   margin-bottom: 0 !important;
-} 
+}
+
+.real-big-link {
+  font-size: 4em;
+  text-align: center;
+}

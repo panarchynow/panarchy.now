@@ -1,0 +1,18 @@
+[goldmark]
+[goldmark.renderer]
+unsafe = true
+
+[goldmark.parser]
+[goldmark.parser.attribute]
+block = true
+title = true
+inline = true 
+
+[goldmark.extensions]
+linkify = true
+[goldmark.renderer.extensions]
+linkify = true
+xhtml = true
+[goldmark.renderer.extensions.links]
+externalBlank = true
+externalRelNofollow = true

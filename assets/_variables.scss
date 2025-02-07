@@ -39,10 +39,6 @@ $container-min-width: 20rem !default;
 $menu-width: 16rem !default;
 $mobile-breakpoint: $menu-width + $container-max-width;
 
-// Переопределение темных/светлых тем
-$theme-light: #202020;
-$theme-dark: #202020;
-
 // Цвета меню
 $menu-background: $gray-200;
 $menu-color: $body-font-color;
@@ -50,10 +46,6 @@ $menu-color: $body-font-color;
 // Цвета поиска
 $search-background: $gray-200;
 $search-color: $body-font-color;
-
-// Светлая тема (инвертированная)
-$light-background: $dark-font-color;
-$light-font-color: $dark-background;
 
 // Themes
 @mixin theme-light {
@@ -70,14 +62,42 @@ $light-font-color: $dark-background;
   
   --search-background: #{$light-menu-background};
   --search-color: #{$light-font-color};
+  --bg-opacity: 0.5;
+}
+
+@mixin theme-dark {
+  --body-background: #{$dark-background};
+  --body-font-color: #{$dark-font-color};
+  --color-link: #{$dark-color-link};
+  --color-visited-link: #{darken($dark-color-link, 10%)};
+  
+  --gray-100: #{$dark-background};
+  --gray-200: #{$dark-menu-background};
+  
+  --menu-background: #{$dark-menu-background};
+  --menu-color: #{$dark-font-color};
+  
+  --search-background: #{$dark-menu-background};
+  --search-color: #{$dark-font-color};
+  --bg-opacity: 0.2;
 }
 
 [data-theme="light"] {
   @include theme-light;
 }
 
+[data-theme="dark"] {
+  @include theme-dark;
+}
+
 @media (prefers-color-scheme: light) {
   [data-theme="auto"] {
     @include theme-light;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="auto"] {
+    @include theme-dark;
   }
 } 

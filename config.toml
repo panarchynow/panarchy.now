@@ -1,11 +1,11 @@
 theme = "hugo-book"
 
 [params]
-  # Темная тема по умолчанию
-  BookTheme = "light"
-  
-  # Включаем поиск
-  BookSearch = true
-  
-  # Включаем оглавление справа
-  BookToC = true 
+# Принудительно включаем светлую тему
+BookTheme = "light"
+
+# Включаем поиск
+BookSearch = true
+
+# Включаем оглавление справа
+BookToC = false
