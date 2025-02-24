@@ -3,6 +3,8 @@ title: DOGE
 type: docs
 ---
 
+# Персональный токен DOGE
+
 [DOGE](https://stellar.expert/explorer/public/asset/DOGE-GBS6ECIFSP3CDNCNOBMHZWVTVVQX6R56CPD2WOG7AIAIDHZOLO27AMDR) — персональный токен, предоставляющий возможность найма Димы А из расчета 1 токен = 1 часа работы.
 
 Основная деятельность: Backend Developer.
