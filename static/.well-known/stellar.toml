@@ -1,0 +1,41 @@
+VERSION = "2.0.0"
+
+ACCOUNTS = [
+  "GAFTGH2IPP7KKLY75UKAYMFFYXKBML63NBO6TNOVWASWJNWBTB4EPNOW",
+  "GDLWRGX2NJZZD3WYZPEHHQDQWIKHJBF2BOYHAC46YOVGNQETFQWR22TG",
+  "GBS6ECIFSP3CDNCNOBMHZWVTVVQX6R56CPD2WOG7AIAIDHZOLO27AMDR",
+  "GAC4SEIPXSVDUXNK3NQQTJ6IYDSM5KOYO5VIPG5LGTTVDFVHAAWL7MPA",
+]
+
+[DOCUMENTATION]
+ORG_NAME = "Panarchy Now"
+ORG_URL = "https://panarchy.now"
+ORG_DESCRIPTION = "Panarchy Now Faction of Montelibero Association"
+ORG_OFFICIAL_EMAIL = "me@xdefrag.dev"
+ORG_SUPPORT_EMAIL = "me@xdefrag.dev"
+
+[[PRINCIPALS]]
+name = "Stas Karkavin"
+email = "me@xdefrag.dev"
+twitter = "xdefrag"
+github = "xdefrag"
+
+[[CURRENCIES]]
+code = "MORT"
+issuer = "GDLWRGX2NJZZD3WYZPEHHQDQWIKHJBF2BOYHAC46YOVGNQETFQWR22TG"
+status = "live"
+display_decimals = 0
+name = "MORT"
+desc = "Psychobilly 13 working hour"
+is_unlimited = true
+image = "https://panarchy.now/.well-known/mortlogo.png"
+
+[[CURRENCIES]]
+code = "DOGE"
+issuer = "GBS6ECIFSP3CDNCNOBMHZWVTVVQX6R56CPD2WOG7AIAIDHZOLO27AMDR"
+status = "live"
+display_decimals = 0
+name = "DOGE"
+desc = "am_der working hour"
+is_unlimited = true
+image = "https://panarchy.now/.well-known/kek3.png"
